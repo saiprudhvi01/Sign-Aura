@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: sign-aura
+    env: static
+    buildCommand: "npm install"
+    staticPublishPath: "."
+    envVars:
+      - key: NODE_VERSION
+        value: 16.14.0
