@@ -20,6 +20,18 @@
   <script src="anime.min.js"></script>
 
   <link rel="stylesheet" type="text/css" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@400;700&family=Noto+Sans+Tamil:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@400;700&family=Noto+Sans+Tamil:wght@400;700&display=swap');
+    .telugu-text {
+      font-family: 'Noto Sans Telugu', sans-serif;
+      font-size: 1.2em;
+    }
+    .tamil-text {
+      font-family: 'Noto Sans Tamil', sans-serif;
+      font-size: 1.2em;
+    }
+  </style>
 </head>
 <body>
   <div id="overlay">
@@ -184,9 +196,24 @@
             landmarks[17].x * canvasElement.width,
             landmarks[17].y * canvasElement.height
           );
-          canvasCtx.font = "30px Arial";
-          canvasCtx.fillStyle = "red";
-          canvasCtx.fillText(predicted_letter, 5, canvasElement.height / 2);
+          // Create a div to display the predicted letter with proper styling
+          let displayDiv = document.getElementById('prediction-display');
+          if (!displayDiv) {
+            displayDiv = document.createElement('div');
+            displayDiv.id = 'prediction-display';
+            displayDiv.style.position = 'absolute';
+            displayDiv.style.top = '10px';
+            displayDiv.style.left = '10px';
+            displayDiv.style.fontSize = '64px';
+            displayDiv.style.fontWeight = 'bold';
+            displayDiv.style.color = 'red';
+            displayDiv.style.zIndex = '1000';
+            document.body.appendChild(displayDiv);
+          }
+          displayDiv.innerHTML = predicted_letter;
+          
+          // Clear the previous text on canvas
+          canvasCtx.clearRect(0, 0, canvasElement.width, 100);
         }
       }
     }
@@ -238,16 +265,28 @@
         gesture16: "Y", gesture17: "NA", gesture18: "Hi", gesture19: "i<3u"
       },
       telugu: {
-        gesture1: "అ", gesture2: "ఆ", gesture3: "ఇ", gesture4: "ఈ", gesture5: "ఉ",
-        gesture6: "ఊ", gesture7: "ఋ", gesture8: "ఌ", gesture9: "ఎ", gesture10: "ఏ",
-        gesture11: "ఐ", gesture12: "ఒ", gesture13: "ఓ", gesture14: "ఔ", gesture15: "ఁ",
-        gesture16: "ం", gesture17: "ః", gesture18: "క", gesture19: "ఖ"
+        gesture1: "<span class='telugu-text'>అ</span>", gesture2: "<span class='telugu-text'>ఆ</span>", 
+        gesture3: "<span class='telugu-text'>ఇ</span>", gesture4: "<span class='telugu-text'>ఈ</span>", 
+        gesture5: "<span class='telugu-text'>ఉ</span>", gesture6: "<span class='telugu-text'>ఊ</span>", 
+        gesture7: "<span class='telugu-text'>ఋ</span>", gesture8: "<span class='telugu-text'>ఌ</span>", 
+        gesture9: "<span class='telugu-text'>ఎ</span>", gesture10: "<span class='telugu-text'>ఏ</span>",
+        gesture11: "<span class='telugu-text'>ఐ</span>", gesture12: "<span class='telugu-text'>ఒ</span>", 
+        gesture13: "<span class='telugu-text'>ఓ</span>", gesture14: "<span class='telugu-text'>ఔ</span>", 
+        gesture15: "<span class='telugu-text'>ఁ</span>", gesture16: "<span class='telugu-text'>ం</span>", 
+        gesture17: "<span class='telugu-text'>ః</span>", gesture18: "<span class='telugu-text'>క</span>", 
+        gesture19: "<span class='telugu-text'>ఖ</span>"
       },
       tamil: {
-        gesture1: "அ", gesture2: "ஆ", gesture3: "இ", gesture4: "ஈ", gesture5: "உ",
-        gesture6: "ஊ", gesture7: "எ", gesture8: "ஏ", gesture9: "ஐ", gesture10: "ஒ",
-        gesture11: "ஓ", gesture12: "ஔ", gesture13: "ங", gesture14: "ச", gesture15: "ஞ",
-        gesture16: "ட", gesture17: "ண", gesture18: "த", gesture19: "ந"
+        gesture1: "<span class='tamil-text'>அ</span>", gesture2: "<span class='tamil-text'>ஆ</span>", 
+        gesture3: "<span class='tamil-text'>இ</span>", gesture4: "<span class='tamil-text'>ஈ</span>", 
+        gesture5: "<span class='tamil-text'>உ</span>", gesture6: "<span class='tamil-text'>ஊ</span>", 
+        gesture7: "<span class='tamil-text'>எ</span>", gesture8: "<span class='tamil-text'>ஏ</span>", 
+        gesture9: "<span class='tamil-text'>ஐ</span>", gesture10: "<span class='tamil-text'>ஒ</span>",
+        gesture11: "<span class='tamil-text'>ஓ</span>", gesture12: "<span class='tamil-text'>ஔ</span>", 
+        gesture13: "<span class='tamil-text'>ங</span>", gesture14: "<span class='tamil-text'>ச</span>", 
+        gesture15: "<span class='tamil-text'>ஞ</span>", gesture16: "<span class='tamil-text'>ட</span>", 
+        gesture17: "<span class='tamil-text'>ண</span>", gesture18: "<span class='tamil-text'>த</span>", 
+        gesture19: "<span class='tamil-text'>ந</span>"
       }
     };
 
