@@ -1,0 +1,27 @@
+{
+  "name": "sign-aura",
+  "version": "1.0.0",
+  "description": "A real-time sign language recognition app",
+  "main": "app.html",
+  "scripts": {
+    "start": "npx serve -s",
+    "test": "echo \"No tests yet\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/saiprudhvi01/Sign-Aura.git"
+  },
+  "keywords": [
+    "sign-language",
+    "ai",
+    "web-app"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "serve": "^14.2.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
