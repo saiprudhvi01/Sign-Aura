@@ -131,6 +131,21 @@ body {
   width: inherit;
 }
 
+/* Multilingual detected-letter banner */
+#letter-banner {
+  position: fixed;
+  top: 0; /* will be set dynamically in JS to sit below navbar */
+  left: 12px;
+  z-index: 10;
+  color: #ff4444;
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+  font-family: 'Noto Sans Telugu', 'Noto Sans Tamil', 'Noto Sans Devanagari', Arial, sans-serif;
+  pointer-events: none;
+}
+
 #local-video {
   bottom: 5px;
   width: 320px;
